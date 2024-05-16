@@ -11,6 +11,17 @@ const Projects = () => {
         <h2 className="flex justify-center mt-72 text-4xl text-gray-700 font-semibold ">
           New Projects Comming Soon...🤠
         </h2>
+        <p className="flex justify-center p-10">
+          <a
+            className="text-2xl font-bold"
+            href="https://expense-tracker-app-blue-eight.vercel.app/"
+          >
+            Here is my Project{" "}
+            <button className="bg-black text-gray-50 py-1 px-2 rounded-full">
+              Click me
+            </button>
+          </a>
+        </p>
       </div>
     </div>
   );
