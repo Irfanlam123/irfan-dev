@@ -22,6 +22,17 @@ const Projects = () => {
             </button>
           </a>
         </p>
+        <p className="flex justify-center p-10">
+          <a
+            className="text-2xl font-bold"
+            href="https://login-popup.vercel.app/"
+          >
+            Here is my Project{" "}
+            <button className="bg-black text-gray-50 py-1 px-2 rounded-full">
+              Click me
+            </button>
+          </a>
+        </p>
       </div>
     </div>
   );
