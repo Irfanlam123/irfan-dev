@@ -1,5 +1,6 @@
 // src/Navbar.js
-import React from "react";
+import React, { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -9,18 +10,47 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="bg-white  fixed w-full top-0 shadow-lg z-10 py-12   ">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-slate-950 text-3xl ml-16 font-semibold">
+    <nav className="bg-white fixed w-full top-0 shadow-lg z-10 py-4">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <div className="text-slate-950 text-3xl font-semibold">
           <a href="/">irfan.dev</a>
         </div>
-        <ul className="flex space-x-2">
+        <div className="flex md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-600 hover:text-blue-400 focus:outline-none"
+          >
+            {isOpen ? (
+              <XMarkIcon className="w-8 h-8" />
+            ) : (
+              <Bars3Icon className="w-8 h-8" />
+            )}
+          </button>
+        </div>
+        <ul className="hidden md:flex space-x-4 mr-16">
           {navItems.map((item, index) => (
             <li key={index}>
               <a
                 href={item.href}
-                className="text-gray-600 hover:text-blue-400 transition duration-300 text-2xl py-2   mr-10 font-sans font-extrabold"
+                className="text-gray-600 hover:text-blue-400 transition duration-300 text-xl py-2 font-sans font-extrabold"
+              >
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={`md:hidden ${isOpen ? "block" : "hidden"} bg-white shadow-lg`}>
+        <ul className="flex flex-col items-center py-4">
+          {navItems.map((item, index) => (
+            <li key={index} className="w-full text-center">
+              <a
+                href={item.href}
+                className="block text-gray-600 hover:text-blue-400 transition duration-300 text-xl py-2 font-sans font-extrabold"
+                onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>

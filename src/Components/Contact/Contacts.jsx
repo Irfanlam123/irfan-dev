@@ -4,38 +4,44 @@ import { TfiEmail } from "react-icons/tfi";
 
 const Contacts = () => {
   return (
-    <div>
-      <p className="text-3xl font-bold text-blue-500">CONTACT</p>
-      <h1 className="text-4xl font-bold mt-5 py-2">
+    <div className="px-4 md:px-12 lg:px-52 py-16 bg-gradient-to-r from-blue-50 to-blue-100">
+      <p className="text-center text-2xl md:text-3xl font-bold text-blue-700">
+        CONTACT
+      </p>
+      <h1 className="text-center text-2xl md:text-4xl font-bold mt-5 py-2 text-gray-700">
         Don't be shy! Hit me up! 👇
       </h1>
-      <div className="flex mt-6">
-        <div className="flex space-x-6">
-          <p className="text-6xl font-bold  rounded-full shadow-2xl bg-white transition transform hover:scale-105 hover:shadow-3xl">
+      <div className="flex flex-col md:flex-row items-center justify-center mt-12 space-y-10 md:space-y-0 md:space-x-12">
+        <div className="flex flex-col items-center text-center md:text-left">
+          <p className="text-6xl font-bold rounded-full shadow-2xl bg-white transition transform hover:scale-105 hover:shadow-3xl">
             <CiLocationArrow1 className="border-2 border-gray-300 rounded-full text-blue-500 font-bold px-2 py-2" />
           </p>
-          <div className="flex flex-col  ">
-            <p className="text-3xl font-semibold">Location</p>
-            <h4 className="text-2xl text-blue-500">
+          <div className="mt-6">
+            <p className="text-xl md:text-3xl font-semibold text-gray-800">
+              Location
+            </p>
+            <h4 className="text-lg md:text-2xl text-blue-600">
               <a href="/">Delhi, India</a>
             </h4>
           </div>
-          <div className="flex ">
-            <p className="text-6xl font-bold  rounded-full shadow-2xl bg-white transition transform hover:scale-105 hover:shadow-3xl">
-              <TfiEmail className="border-2 border-gray-300 rounded-full text-blue-500 font-bold " />
+        </div>
+        <div className="flex flex-col items-center text-center md:text-left">
+          <p className="text-6xl font-bold rounded-full shadow-2xl bg-white transition transform hover:scale-105 hover:shadow-3xl">
+            <TfiEmail className="border-2 border-gray-300 rounded-full text-blue-500 font-bold px-2 py-2" />
+          </p>
+          <div className="mt-6">
+            <p className="text-xl md:text-3xl font-semibold text-gray-800">
+              Email
             </p>
-            <div className="flex ">
-              <p>
-                <a href="" className="text-2xl font-sans text-blue-500 ml-10 ">
-                  {" "}
-                  irfanalam010202@gmail.com
-                </a>
-              </p>
-            </div>
+            <h4 className="text-lg md:text-2xl text-blue-600">
+              <a href="mailto:irfanalam010202@gmail.com">
+                irfanalam010202@gmail.com
+              </a>
+            </h4>
           </div>
         </div>
       </div>
-      <p className="border-2 border-gray-200 mr-44 mt-4 rounded-full"></p>
+      <div className="border-t-2 border-gray-300 mx-4 md:mx-12 lg:mx-52 mt-12"></div>
     </div>
   );
 };
