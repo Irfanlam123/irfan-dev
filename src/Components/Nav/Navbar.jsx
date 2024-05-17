@@ -1,4 +1,3 @@
-// src/Navbar.js
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -13,8 +12,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white fixed w-full top-0 shadow-lg z-10 py-4">
-      <div className="container mx-auto flex justify-between items-center px-4">
+    <nav className="bg-white fixed w-full top-0 shadow-lg z-10 py-10">
+      <div className="container mx-auto flex justify-between items-center px-4 md:px-8 lg:px-16 xl:px-32">
         <div className="text-slate-950 text-3xl font-semibold">
           <a href="/">irfan.dev</a>
         </div>
@@ -30,7 +29,7 @@ const Navbar = () => {
             )}
           </button>
         </div>
-        <ul className="hidden md:flex space-x-4 mr-16">
+        <ul className="hidden md:flex space-x-4">
           {navItems.map((item, index) => (
             <li key={index}>
               <a
@@ -43,7 +42,11 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-      <div className={`md:hidden ${isOpen ? "block" : "hidden"} bg-white shadow-lg`}>
+      <div
+        className={`md:hidden ${
+          isOpen ? "block" : "hidden"
+        } bg-white shadow-lg`}
+      >
         <ul className="flex flex-col items-center py-4">
           {navItems.map((item, index) => (
             <li key={index} className="w-full text-center">
