@@ -34,7 +34,7 @@ const Navbar = () => {
             <li key={index}>
               <a
                 href={item.href}
-                className="text-gray-600 hover:text-blue-400 transition duration-300 text-xl py-2 font-sans font-extrabold"
+                className="text-gray-600 hover:text-blue-400 transition duration-300 text-2xl py-2 font-sans font-extrabold"
               >
                 {item.name}
               </a>
