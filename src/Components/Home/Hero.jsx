@@ -19,7 +19,8 @@ const Hero = () => {
           </div>
           <p className="text-gray-600 font-medium mt-4 md:mt-8 text-lg md:text-2xl py-3">
             Hi, I'm Irfan Alam. A passionate Front-end React Developer <br />
-            based in Delhi, India. <span className="text-2xl md:text-4xl">☺</span>
+            based in Delhi, India.
+            <span className="text-2xl md:text-4xl text-blue-500">☺</span>
           </p>
           <ul className="flex justify-center md:justify-start space-x-10 md:space-x-14 mt-6 md:mt-10">
             <li>
@@ -60,7 +61,9 @@ const Hero = () => {
       </div>
 
       <div className="mt-12 md:mt-24 px-4 md:px-12 lg:px-52 flex flex-col md:flex-row items-center md:items-start space-y-10 md:space-y-0 md:space-x-10">
-        <h1 className="font-bold text-2xl md:text-3xl text-gray-700">Tech Stack</h1>
+        <h1 className="font-bold text-2xl md:text-3xl text-gray-700">
+          Tech Stack
+        </h1>
         <p className="h-14 border-l-2 border-gray-400 hidden md:block"></p>
         <div className="flex flex-wrap justify-center md:justify-start space-x-4 space-y-4 md:space-y-0 md:space-x-10">
           <div className="border-2 rounded-lg bg-orange-500 hover:text-white transition-transform duration-300 hover:-translate-y-3 p-2">
