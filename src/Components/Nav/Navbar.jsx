@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white fixed w-full top-0 shadow-lg z-10 py-8 md:py-10">
+    <nav className="bg-white fixed w-full top-0 shadow-lg z-10 py-4 md:py-10">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8 lg:px-16 xl:px-32">
         <div className="text-slate-950 text-3xl font-semibold">
           <a href="/">irfan.dev</a>
