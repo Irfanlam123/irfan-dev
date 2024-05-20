@@ -88,7 +88,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <p className="border-2 border-gray-200 mt-2 rounded-full mx-4 md:mx-20 shadow-md"></p>
+      <p className="border-2 border-gray-200 mt-2 rounded-full mx-4 md:mx-20 shadow-full"></p>
     </div>
   );
 };
