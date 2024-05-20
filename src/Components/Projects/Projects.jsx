@@ -1,5 +1,5 @@
 import React from "react";
-
+import Stick from "../Projects/Sticky.png";
 const Projects = () => {
   return (
     <div className="bg-gray-100 py-16 px-4 md:px-12 lg:px-52">
@@ -33,6 +33,19 @@ const Projects = () => {
             >
               Here is my Project{" "}
               <button className="bg-black text-gray-50 py-2 px-4 rounded-full transition-transform transform hover:scale-105 ml-2">
+                Click me
+              </button>
+            </a>
+          </div>
+          <div className="relative text-center">
+            <img className="h-72 w-full object-cover" src={Stick} alt="" />
+            <a
+              className="absolute inset-0 flex items-center justify-center"
+              href="https://sikh-lo-nextjs.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-black text-gray-50 py-2 px-4 rounded-full transition-transform transform hover:scale-105">
                 Click me
               </button>
             </a>
