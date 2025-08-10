@@ -15,14 +15,14 @@ const Hero = () => {
         <div className="text-center lg:text-left order-2 lg:order-1">
           <div className="mb-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 leading-tight">
-              Front-End React <br /> 
-              <span className="text-blue-600">Developer</span>{" "}
+              Full Stack  <br /> 
+              <span className="text-blue-600 ml-32">Developer</span>{" "}
               <span className="text-4xl sm:text-5xl">👋</span>
             </h1>
           </div>
           
           <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-            Hi, I'm Irfan Alam. A passionate Front-end React Developer based in Delhi, India.
+            Hi, I'm Irfan Alam. A passionate Full Stack Developer based in Delhi, India.
             <span className="text-blue-500 ml-2">☺</span>
           </p>
           
