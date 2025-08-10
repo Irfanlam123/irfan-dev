@@ -1,48 +1,87 @@
 import React from "react";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { TfiEmail } from "react-icons/tfi";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Contacts = () => {
   return (
-    <div className="px-4 md:px-12 lg:px-52 py-16 bg-gradient-to-r from-blue-50 to-blue-100">
-      <p className="text-center text-2xl md:text-3xl font-bold text-blue-700">
-        CONTACT
-      </p>
-      <h1 className="text-center text-2xl md:text-4xl font-bold mt-5 py-2 text-gray-700">
-        Don't be shy! Hit me up! 👇
-      </h1>
-      <div className="flex flex-col md:flex-row items-center justify-center mt-12 space-y-10 md:space-y-0 md:space-x-12">
-        <div className="flex flex-col items-center text-center md:text-left">
-          <p className="text-6xl font-bold rounded-full shadow-2xl bg-white transition transform hover:scale-105 hover:shadow-3xl">
-            <CiLocationArrow1 className="border-2 border-gray-300 rounded-full text-blue-500 font-bold px-2 py-2" />
-          </p>
-          <div className="mt-6">
-            <p className="text-xl md:text-3xl font-semibold text-gray-800">
-              Location
+    <section id="contact" className="px-6 sm:px-8 md:px-12 lg:px-24 py-20 bg-gradient-to-br from-blue-50 to-blue-100">
+      {/* Section Header */}
+      <div className="max-w-4xl mx-auto text-center mb-16">
+        <p className="text-blue-600 font-semibold text-lg mb-4">GET IN TOUCH</p>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+          Let's Build Something <span className="text-blue-600">Amazing</span> Together
+        </h1>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Whether you have a project in mind or just want to say hello, I'd love to hear from you!
+        </p>
+      </div>
+
+      {/* Contact Cards */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
+        {/* Location Card */}
+        <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+          <div className="p-8 text-center">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6">
+              <CiLocationArrow1 className="text-3xl text-blue-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-3">Location</h3>
+            <p className="text-lg text-blue-600 font-medium">
+              Delhi, India
             </p>
-            <h4 className="text-lg md:text-2xl text-blue-600">
-              <a href="/">Delhi, India</a>
-            </h4>
           </div>
         </div>
-        <div className="flex flex-col items-center text-center md:text-left">
-          <p className="text-6xl font-bold rounded-full shadow-2xl bg-white transition transform hover:scale-105 hover:shadow-3xl">
-            <TfiEmail className="border-2 border-gray-300 rounded-full text-blue-500 font-bold px-2 py-2" />
-          </p>
-          <div className="mt-6">
-            <p className="text-xl md:text-3xl font-semibold text-gray-800">
-              Email
-            </p>
-            <h4 className="text-lg md:text-2xl text-blue-600">
-              <a href="mailto:irfanalam010202@gmail.com">
-                irfanalam010202@gmail.com
-              </a>
-            </h4>
+
+        {/* Email Card */}
+        <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+          <div className="p-8 text-center">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6">
+              <TfiEmail className="text-3xl text-blue-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-3">Email</h3>
+            <a 
+              href="mailto:irfanalam010202@gmail.com" 
+              className="text-lg text-blue-600 font-medium hover:text-blue-800 transition-colors"
+            >
+              irfanalam010202@gmail.com
+            </a>
           </div>
         </div>
       </div>
-      <div className="border-t-2 border-gray-300 mx-4 md:mx-12 lg:mx-52 mt-12"></div>
-    </div>
+
+      {/* Social Links */}
+      <div className="flex justify-center gap-6 mt-16">
+        <a
+          href="https://www.linkedin.com/in/irfan-alam-2034a922b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative"
+          aria-label="LinkedIn"
+        >
+          <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+          <div className="w-14 h-14 flex items-center justify-center bg-white rounded-full shadow-lg group-hover:bg-blue-50 transition-colors">
+            <FaLinkedinIn className="text-2xl text-blue-600 group-hover:text-blue-700 transition-colors" />
+          </div>
+        </a>
+        <a
+          href="https://github.com/Irfanlam123"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative"
+          aria-label="GitHub"
+        >
+          <div className="absolute -inset-1 bg-gray-600 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+          <div className="w-14 h-14 flex items-center justify-center bg-white rounded-full shadow-lg group-hover:bg-gray-50 transition-colors">
+            <FaGithub className="text-2xl text-gray-700 group-hover:text-gray-900 transition-colors" />
+          </div>
+        </a>
+      </div>
+
+      {/* Divider */}
+      <div className="max-w-4xl mx-auto mt-16">
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+      </div>
+    </section>
   );
 };
 
