@@ -1,13 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import Food from "../../assets/food.png";
+import Web from "../../assets/landing.png";
+import Blog from "../../assets/blog.png";
 const projects = [
   {
     title: "MERN Food Delivery App",
     description:
       "A full-stack food delivery application built with the MERN stack, featuring user authentication, restaurant menus, cart functionality, and order management.",
     link: "https://github.com/Irfanlam123/Mern-food-app",
-    image: "./src/assets/food.png",
+    image: Food,
     technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
     accentColor: "from-green-500 to-green-700",
   },
@@ -16,7 +18,7 @@ const projects = [
     description:
       "A full-stack blog application where users can create, read, update, and delete blog posts with a modern and responsive UI.",
     link: "https://blog-app-weld-phi.vercel.app/",
-    image: "./src/assets/blog.png",
+    image: Blog,
     technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
     accentColor: "from-purple-500 to-purple-700",
   },
@@ -25,7 +27,7 @@ const projects = [
     description:
       "A visually engaging landing page showcasing interactive animations, smooth scrolling effects, and responsive design, built to captivate users and improve UX.",
     link: "https://web-animated.vercel.app/",
-    image: "./src/assets/landing.png",
+    image: Web,
     technologies: ["React.js", "Framer Motion", "Tailwind CSS", "GSAP"],
     accentColor: "from-blue-500 to-blue-700",
   },
