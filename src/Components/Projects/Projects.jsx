@@ -3,26 +3,34 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Woodcraft Creations",
+    title: "MERN Food Delivery App",
     description:
-      "An e-commerce platform for handmade woodcraft products featuring custom order functionality, product galleries, and secure checkout.",
-    link: "https://wood-craft-p2o4.vercel.app/",
-    image:
-      "https://images.unsplash.com/photo-1602872030490-4a484a7b3ba6?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Next.js", "Sanity CMS", "Stripe", "Tailwind CSS"],
-    accentColor: "from-amber-500 to-amber-700",
+      "A full-stack food delivery application built with the MERN stack, featuring user authentication, restaurant menus, cart functionality, and order management.",
+    link: "https://github.com/Irfanlam123/Mern-food-app",
+    image: "./src/assets/food.png",
+    technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+    accentColor: "from-green-500 to-green-700",
+  },
+  {
+    title: "Blog App",
+    description:
+      "A full-stack blog application where users can create, read, update, and delete blog posts with a modern and responsive UI.",
+    link: "https://blog-app-weld-phi.vercel.app/",
+    image: "./src/assets/blog.png",
+    technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+    accentColor: "from-purple-500 to-purple-700",
   },
   {
     title: "Web Animated",
     description:
       "A visually engaging landing page showcasing interactive animations, smooth scrolling effects, and responsive design, built to captivate users and improve UX.",
     link: "https://web-animated.vercel.app/",
-    image:
-      "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=600&q=80",
+    image: "./src/assets/landing.png",
     technologies: ["React.js", "Framer Motion", "Tailwind CSS", "GSAP"],
     accentColor: "from-blue-500 to-blue-700",
   },
 ];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
