@@ -1,88 +1,79 @@
 import React from "react";
-import { CiLocationArrow1 } from "react-icons/ci";
-import { TfiEmail } from "react-icons/tfi";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
-const Contacts = () => {
+const footerData = {
+  name: "Irfan Alam",
+  role: "Frontend Developer | React Specialist | UI Enthusiast",
+  location: "Delhi, India",
+  email: "irfanalam010202@gmail.com",
+  socials: [
+    { icon: faLinkedinIn, link: "https://www.linkedin.com/in/irfan-alam-2034a922b/", color: "blue" },
+    { icon: faGithub, link: "https://github.com/Irfanlam123", color: "gray" },
+  ],
+};
+
+const Contact = () => {
   return (
-    <section id="contact" className="px-6 sm:px-8 md:px-12 lg:px-24 py-20 bg-gradient-to-br from-blue-50 to-blue-100">
-      {/* Section Header */}
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <p className="text-blue-600 font-semibold text-lg mb-4">GET IN TOUCH</p>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-          Let's Build Something <span className="text-blue-600">Amazing</span> Together
-        </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Whether you have a project in mind or just want to say hello, I'd love to hear from you!
-        </p>
-      </div>
+    <footer className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16 px-6 sm:px-8 md:px-12 lg:px-24 text-gray-300">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
 
-      {/* Contact Cards */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
-        {/* Location Card */}
-        <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-          <div className="p-8 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6">
-              <CiLocationArrow1 className="text-3xl text-blue-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">Location</h3>
-            <p className="text-lg text-blue-600 font-medium">
-              Delhi, India
-            </p>
-          </div>
+        {/* Name & Role */}
+        <div className="text-center md:text-left">
+          <h3 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
+            {footerData.name}
+          </h3>
+          <p className="text-lg sm:text-xl text-gray-400 mb-6">{footerData.role}</p>
+          <p className="text-gray-500 text-base">© {new Date().getFullYear()} All Rights Reserved</p>
         </div>
 
-        {/* Email Card */}
-        <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-          <div className="p-8 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6">
-              <TfiEmail className="text-3xl text-blue-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">Email</h3>
-            <a 
-              href="mailto:irfanalam010202@gmail.com" 
-              className="text-lg text-blue-600 font-medium hover:text-blue-800 transition-colors"
+        {/* Social Links & Contact */}
+        <div className="flex flex-col items-center md:items-end gap-6">
+          <div className="flex space-x-6">
+            {footerData.socials.map((social, idx) => (
+              <a
+                key={idx}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label={social.icon.iconName}
+              >
+                <div className="absolute -inset-2 bg-gradient-to-tr from-blue-500/50 to-purple-500/50 rounded-full blur opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+                <div className="w-14 h-14 flex items-center justify-center bg-gray-900/50 backdrop-blur-md rounded-full border border-gray-700 group-hover:border-blue-400 transition-all duration-500 shadow-lg">
+                  <FontAwesomeIcon
+                    icon={social.icon}
+                    className={`text-3xl text-white group-hover:text-blue-400 transition-colors duration-500`}
+                  />
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Contact Info */}
+          <div className="text-center md:text-right mt-4">
+            <p className="text-lg text-gray-400 mb-1">📍 {footerData.location}</p>
+            <a
+              href={`mailto:${footerData.email}`}
+              className="text-blue-400 font-medium text-lg hover:text-blue-300 transition-colors"
             >
-              irfanalam010202@gmail.com
+              {footerData.email}
             </a>
           </div>
         </div>
       </div>
 
-      {/* Social Links */}
-      <div className="flex justify-center gap-6 mt-16">
-        <a
-          href="https://www.linkedin.com/in/irfan-alam-2034a922b/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative"
-          aria-label="LinkedIn"
-        >
-          <div className="absolute -inset-1 bg-blue-600 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-          <div className="w-14 h-14 flex items-center justify-center bg-white rounded-full shadow-lg group-hover:bg-blue-50 transition-colors">
-            <FaLinkedinIn className="text-2xl text-blue-600 group-hover:text-blue-700 transition-colors" />
-          </div>
-        </a>
-        <a
-          href="https://github.com/Irfanlam123"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative"
-          aria-label="GitHub"
-        >
-          <div className="absolute -inset-1 bg-gray-600 rounded-full blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-          <div className="w-14 h-14 flex items-center justify-center bg-white rounded-full shadow-lg group-hover:bg-gray-50 transition-colors">
-            <FaGithub className="text-2xl text-gray-700 group-hover:text-gray-900 transition-colors" />
-          </div>
-        </a>
-      </div>
-
       {/* Divider */}
-      <div className="max-w-4xl mx-auto mt-16">
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent my-12"></div>
+
+      {/* Footer Note */}
+      <div className="text-center text-gray-400 text-sm sm:text-base">
+        Crafted with <span className="text-red-500">❤️</span> using{" "}
+        <span className="text-blue-400 font-semibold">React</span> &{" "}
+        <span className="text-purple-400 font-semibold">Tailwind CSS</span>
       </div>
-    </section>
+    </footer>
   );
 };
 
-export default Contacts;
+export default Contact;

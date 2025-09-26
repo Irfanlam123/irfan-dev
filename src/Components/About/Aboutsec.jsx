@@ -1,155 +1,158 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Abot from "../About/abot.jpg";
 
 const Aboutsec = () => {
-  // Organized skills data
-  const skills = {
-    languages: ["JavaScript", "Golang", "HTML5", "CSS3"],
-    frameworks: ["React", "Next.js", "Node.js", "Express.js"],
-    databases: ["MongoDB", "PostgreSQL", "MySQL"],
-    tools: ["Git", "GitHub", "Postman", "Docker", "Microservices"],
+  const aboutData = {
+    title: "About Me",
+    subtitle: "GET TO KNOW ME",
+    location: "Delhi, India 📍",
+    name: "Irfan",
+    role: "Full Stack Developer",
+    image: Abot,
+    bio: [
+      "Hello! I'm Irfan, a passionate full stack developer with a love for creating beautiful, functional, and user-friendly digital experiences.",
+      "My expertise lies in modern web technologies with a strong focus on React.js, Next.js, and Tailwind CSS.",
+      "When I'm not coding, you can find me exploring new design trends or contributing to open-source projects.",
+    ],
+    skills: {
+      Languages: ["JavaScript", "Golang", "HTML5", "CSS3"],
+      "Frameworks & Libraries": ["React", "Next.js", "Node.js", "Express.js"],
+      Databases: ["MongoDB", "PostgreSQL", "MySQL"],
+      "Tools & Technologies": ["Git", "GitHub", "Postman", "Docker", "Microservices"],
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, duration: 0.8 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const skillColors = {
+    Languages: "blue",
+    "Frameworks & Libraries": "purple",
+    Databases: "green",
+    "Tools & Technologies": "amber",
   };
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50 py-12 md:py-16">
+    <section
+      id="about"
+      className="w-full px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-0 md:pt-8 pb-20 md:pb-28 text-gray-300"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Compact Section Header */}
-        <div className="text-center mb-8 sm:mb-10">
-          <span className="inline-block px-3 py-1 text-xs sm:text-sm font-semibold tracking-wider text-blue-600 bg-blue-100 rounded-full mb-3 transform transition-all hover:scale-105">
-            GET TO KNOW ME
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-            About <span className="text-blue-600">Me</span>
-          </h2>
-          <div className="mx-auto h-1 w-20 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
-        </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* Section Header */}
+          <motion.div className="text-center mb-16" variants={itemVariants}>
+            <motion.span
+              className="inline-block px-4 py-2 text-sm font-semibold tracking-wider text-blue-400 bg-blue-900/30 rounded-full mb-4"
+              whileHover={{ scale: 1.05 }}
+            >
+              {aboutData.subtitle}
+            </motion.span>
+            <motion.h2
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4"
+              variants={itemVariants}
+            >
+              About{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                Me
+              </span>
+            </motion.h2>
+            <motion.div
+              className="mx-auto h-1 w-24 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"
+              variants={itemVariants}
+            />
+          </motion.div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
-          {/* Image Section */}
-          <div className="relative w-full max-w-sm lg:max-w-md group">
-            <div className="absolute -inset-3 -z-10 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-3xl opacity-20 blur-lg group-hover:opacity-30 transition-all duration-500"></div>
-            <div className="overflow-hidden rounded-2xl shadow-xl border-4 border-white transform transition-all duration-500 hover:scale-[1.02] group-hover:shadow-2xl">
-              <img 
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                src={Abot} 
-                alt="Irfan - Frontend Developer" 
-                loading="lazy"
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+            {/* Image Section */}
+            <motion.div
+              className="relative w-full max-w-sm lg:max-w-md"
+              variants={itemVariants}
+            >
+              <motion.div
+                className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl opacity-20 blur-xl -z-10"
+                animate={{ opacity: [0.1, 0.2, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity }}
               />
-            </div>
-            {/* Floating elements */}
-            <div className="absolute -bottom-4 -left-4 w-12 h-12 rounded-full bg-blue-100 opacity-70 animate-float1"></div>
-            <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-blue-200 opacity-50 animate-float2"></div>
+              <motion.div
+                className="overflow-hidden rounded-2xl shadow-2xl border-2 border-gray-700"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <img
+                  className="w-full h-auto object-cover"
+                  src={aboutData.image}
+                  alt={`${aboutData.name} - ${aboutData.role}`}
+                  loading="lazy"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Content Section */}
+            <motion.div className="w-full max-w-2xl" variants={containerVariants}>
+              <motion.h3
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-6"
+                variants={itemVariants}
+              >
+                A dedicated{" "}
+                <span className="text-blue-400">{aboutData.role}</span> based in{" "}
+                {aboutData.location}
+              </motion.h3>
+
+              <motion.div
+                className="space-y-4 text-gray-400 mb-8"
+                variants={itemVariants}
+              >
+                {aboutData.bio.map((paragraph, idx) => (
+                  <p key={idx} className="text-base sm:text-lg leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </motion.div>
+
+              {/* Skills Section */}
+              <motion.div className="space-y-6" variants={containerVariants}>
+                {Object.entries(aboutData.skills).map(([category, skillList]) => (
+                  <motion.div key={category} variants={itemVariants}>
+                    <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                      <span
+                        className={`w-3 h-3 bg-${skillColors[category]}-400 rounded-full mr-3`}
+                      ></span>
+                      {category}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skillList.map((skill) => (
+                        <motion.span
+                          key={skill}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          className={`px-3 py-2 text-sm font-medium text-${skillColors[category]}-300 bg-${skillColors[category]}-900/30 rounded-lg transition-all duration-300 border border-${skillColors[category]}-800/50`}
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
           </div>
-
-          {/* Content Section */}
-          <div className="w-full max-w-2xl">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-4">
-              A dedicated <span className="text-blue-600">Full Stack Developer</span> based in Delhi, India 📍
-            </h3>
-            
-            <div className="space-y-4">
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                Hello! I'm <span className="font-semibold text-blue-600">Irfan</span>, a passionate full stack developer with a love for creating beautiful, functional, and user-friendly digital experiences.
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                My expertise lies in modern web technologies with a strong focus on <span className="font-semibold text-blue-600">React.js</span>, <span className="font-semibold text-blue-600">Next.js</span>, and <span className="font-semibold text-blue-600">Tailwind CSS</span>.
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                When I'm not coding, you can find me exploring new design trends or contributing to open-source projects.
-              </p>
-            </div>
-
-            {/* Organized Skills Section */}
-            <div className="mt-8 space-y-6">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
-                  Languages
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.languages.map((skill) => (
-                    <span 
-                      key={skill}
-                      className="px-3 py-1 text-xs sm:text-sm font-medium text-blue-700 bg-blue-100 rounded-full transition-all hover:bg-blue-200 hover:text-blue-800 hover:scale-105"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <span className="w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
-                  Frameworks & Libraries
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.frameworks.map((skill) => (
-                    <span 
-                      key={skill}
-                      className="px-3 py-1 text-xs sm:text-sm font-medium text-purple-700 bg-purple-100 rounded-full transition-all hover:bg-purple-200 hover:text-purple-800 hover:scale-105"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-                  Databases
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.databases.map((skill) => (
-                    <span 
-                      key={skill}
-                      className="px-3 py-1 text-xs sm:text-sm font-medium text-green-700 bg-green-100 rounded-full transition-all hover:bg-green-200 hover:text-green-800 hover:scale-105"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <span className="w-3 h-3 bg-amber-500 rounded-full mr-2"></span>
-                  Tools & Technologies
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tools.map((skill) => (
-                    <span 
-                      key={skill}
-                      className="px-3 py-1 text-xs sm:text-sm font-medium text-amber-700 bg-amber-100 rounded-full transition-all hover:bg-amber-200 hover:text-amber-800 hover:scale-105"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
-
-      {/* Animation styles */}
-      <style jsx>{`
-        @keyframes float1 {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(3deg); }
-        }
-        @keyframes float2 {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(8px) rotate(-3deg); }
-        }
-        .animate-float1 {
-          animation: float1 6s ease-in-out infinite;
-        }
-        .animate-float2 {
-          animation: float2 8s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 };

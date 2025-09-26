@@ -12,13 +12,22 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const handleToggle = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const [activeSection, setActiveSection] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 50);
+
+      const sections = navItems.map((item) => item.href.substring(1));
+      const current = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(`#${current}`);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,69 +35,89 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-sm shadow-md py-3" : "bg-white/90 backdrop-blur-sm py-4"} md:py-6`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="text-slate-950 text-2xl sm:text-3xl font-bold">
-            <Link 
-              to="#home" 
-              smooth 
-              onClick={closeMenu}
-              className="hover:text-blue-500 transition-colors duration-200"
-            >
-              irfan.dev
-            </Link>
-          </div>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "backdrop-blur-lg bg-gray-900/80 shadow-md border-b border-gray-700"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-5xl mx-auto  flex items-center mt-10 justify-between px-4 py-7">
+        {/* Logo */}
+        <Link
+          to="#home"
+          smooth
+          className="text-3xl font-extrabold tracking-wide text-white hover:text-blue-400 transition"
+        >
+          <p>
+            {"{"}irfan.dev{"}"}
+          </p>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-6 lg:space-x-8">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={item.href}
-                  smooth
-                  className="text-gray-700 hover:text-blue-500 transition-all duration-200 text-lg lg:text-xl font-medium relative group"
-                  activeClassName="text-blue-500"
-                >
-                  {item.name}
-                  <span className={`absolute left-0 bottom-0 h-0.5 bg-blue-500 transition-all duration-300 ${scrolled ? 'w-0 group-hover:w-full' : 'w-0 group-hover:w-full'}`}></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-10">
+          {navItems.map((item, i) => (
+            <li key={i} className="relative group">
+              <Link
+                to={item.href}
+                smooth
+                className={`text-lg font-semibold tracking-wide transition duration-300 ${
+                  activeSection === item.href
+                    ? "text-blue-400"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {item.name}
+                {/* Underline effect */}
+                <span
+                  className={`absolute left-0 bottom-[-6px] h-[3px] w-full bg-blue-400 transform scale-x-0 transition-transform duration-300 ${
+                    activeSection === item.href
+                      ? "scale-x-100"
+                      : "group-hover:scale-x-100"
+                  }`}
+                ></span>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={handleToggle}
-            className="md:hidden text-gray-700 hover:text-blue-500 focus:outline-none transition-colors duration-200 p-1"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            {isOpen ? (
-              <XMarkIcon className="w-7 h-7" />
-            ) : (
-              <Bars3Icon className="w-7 h-7" />
-            )}
-          </button>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-gray-300 hover:text-white transition"
+        >
+          {isOpen ? (
+            <XMarkIcon className="w-8 h-8" />
+          ) : (
+            <Bars3Icon className="w-8 h-8" />
+          )}
+        </button>
+      </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden ${isOpen ? "block" : "hidden"} transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-96" : "max-h-0"}`}>
-          <ul className="flex flex-col space-y-2 py-4">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={item.href}
-                  smooth
-                  className="block px-4 py-3 text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg transition-colors duration-200 text-lg font-medium"
-                  onClick={closeMenu}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Mobile Menu with animation */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ${
+          isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col space-y-6 px-6 py-6 bg-gray-900/95 border-t border-gray-700">
+          {navItems.map((item, i) => (
+            <li key={i}>
+              <Link
+                to={item.href}
+                smooth
+                className={`block text-lg font-semibold tracking-wide transition duration-300 ${
+                  activeSection === item.href
+                    ? "text-blue-400"
+                    : "text-gray-300 hover:text-white"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );
