@@ -6,6 +6,7 @@ import { IoLogoJavascript } from "react-icons/io";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { motion } from "framer-motion";
 import IMG from "../Home/chem.png";
+import resume from "../../assets/Irfan_Resume.pdf"
 
 const Hero = () => {
   const textVariants = {
@@ -105,7 +106,7 @@ const Hero = () => {
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <motion.a
-                  href=".\src\assets\Irfan_Resume.pdf"
+                  href={resume}
                   download
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
