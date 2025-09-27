@@ -6,7 +6,7 @@
 [![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white&style=for-the-badge)](https://vercel.com/)
 
 Welcome to my personal portfolio website! This project showcases my skills, projects, and experience as a Full Stack Developer. You can check it out live [here](https://irfan-dev.vercel.app/).
-Here is the Link:https://irfan-dev.vercel.app/
+
 ## Tech Stack
 
 This portfolio is built using **React** and **Vite**, providing a fast and modern development experience. It also includes ESLint for code quality and proper formatting.
