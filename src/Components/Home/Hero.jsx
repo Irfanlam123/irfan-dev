@@ -76,7 +76,7 @@ const Hero = () => {
               variants={textVariants}
             >
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-                Frontend{" "}
+                FullStack{" "}
                 <motion.span
                   className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"
                   whileHover={{ scale: 1.05 }}
@@ -93,7 +93,7 @@ const Hero = () => {
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
                 Hi, I'm <span className="font-semibold text-white">Irfan Alam</span>, a
-                passionate Frontend Developer based in Delhi, India.{" "}
+                passionate Full Stack Developer based in Delhi, India.{" "}
                 <motion.span
                   className="text-blue-400 inline-block ml-1"
                   animate={{ scale: [1, 1.2, 1] }}
